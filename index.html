@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>WB Cashback App</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f7f7f7; }
+    h1 { text-align: center; }
+    .menu { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+    button { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; background: #4CAF50; color: white; }
+    .card { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <h1>WB Cashback</h1>
+  <div class="menu">
+    <button onclick="show('catalog')">📂 Каталог</button>
+    <button onclick="show('profile')">👤 Профиль</button>
+    <button onclick="show('orders')">🛒 История</button>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    function show(page) {
+      let content = document.getElementById("content");
+      if (page === "catalog") {
+        content.innerHTML = `
+          <div class="card"><b>Товар 1</b><br>Цена: 1000₽<br>Кешбэк: 100₽</div>
+          <div class="card"><b>Товар 2</b><br>Цена: 2000₽<br>Кешбэк: 200₽</div>
+        `;
+      }
+      if (page === "profile") {
+        content.innerHTML = `<div class="card">👤 Ваш профиль<br>ID: 12345<br>Баланс: 500₽</div>`;
+      }
+      if (page === "orders") {
+        content.innerHTML = `<div class="card">🛒 История заказов пуста</div>`;
+      }
+    }
+    show("catalog"); // по умолчанию
+  </script>
+</body>
+</html>
